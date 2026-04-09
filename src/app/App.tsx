@@ -19,7 +19,7 @@ export default function App() {
   const repairServices = [
     {
       model: 'iPhone 17',
-      image: '/src/assets/Iphone17.PNG',
+      image: '/src/images/Iphone17.PNG',
       features: [
         'Замена дисплея',
         'Ремонт материнской платы',
@@ -30,7 +30,7 @@ export default function App() {
     },
     {
       model: 'iPhone 17 Pro',
-      image: '/src/assets/Iphone17Pro.PNG',
+      image: '/src/images/Iphone17Pro.PNG',
       features: [
         'Замена дисплея ProMotion',
         'Ремонт Face ID',
@@ -41,7 +41,7 @@ export default function App() {
     },
     {
       model: 'iPhone 17 Pro Max',
-      image: '/src/assets/Iphone17ProMax.PNG',
+      image: '/src/images/Iphone17ProMax.PNG',
       features: [
         'Замена дисплея LTPO',
         'Ремонт тройной камеры',
@@ -52,7 +52,7 @@ export default function App() {
     },
     {
     model: 'iPhone 17 Air',
-    image: '/src/assets/Iphone17Air.PNG',
+    image: '/src/images/Iphone17Air.PNG',
     features: [
       'Замена аккумулятора',
       'Восстановление корпуса',
@@ -64,7 +64,7 @@ export default function App() {
   const salesModels = [
     {
       model: 'iPhone 17',
-      image: '/src/assets/Iphone17.PNG',
+      image: '/src/images/Iphone17.PNG',
       features: [
         'Дисплей 6.1" OLED',
         'Chip A18',
@@ -74,7 +74,7 @@ export default function App() {
     },
     {
       model: 'iPhone 17 Pro',
-      image: '/src/assets/Iphone17Pro.PNG',
+      image: '/src/images/Iphone17Pro.PNG',
       features: [
         'Дисплей 6.1" ProMotion',
         'Chip A18 Pro',
@@ -84,7 +84,7 @@ export default function App() {
     },
     {
       model: 'iPhone 17 Pro Max',
-      image: '/src/assets/Iphone17ProMax.PNG',
+      image: '/src/images/Iphone17ProMax.PNG',
       features: [
         'Дисплей 6.7" ProMotion',
         'Chip A18 Pro',
@@ -94,7 +94,7 @@ export default function App() {
     },
     {
     model: 'iPhone 17 Air',
-    image: '/src/assets/Iphone17Air.PNG',
+    image: '/src/images/Iphone17Air.PNG',
     features: [
       'Ультратонкий корпус',
       'Дисплей 6.6" OLED',
