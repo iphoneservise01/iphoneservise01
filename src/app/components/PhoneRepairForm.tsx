@@ -69,9 +69,9 @@ export function PhoneRepairForm({ formType }: PhoneRepairFormProps) {
   const availableModels = formType === 'repair' ? repairModels : purchaseModels;
 
   const API_URL =
-    window.location.hostname === 'localhost'
-      ? 'http://localhost:3001/api/submit'
-      : 'https://iphone-servis-backend.onrender.com/api/submit';
+  window.location.hostname === 'localhost'
+    ? 'http://localhost:3001/api/submit'
+    : 'https://iphoneservise02.onrender.com/api/submit';
 
   const handleChange = (field: keyof FormValues, value: string) => {
     let nextValue = value;
