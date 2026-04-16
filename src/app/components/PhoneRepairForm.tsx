@@ -39,7 +39,6 @@ const initialValues: FormValues = {
   website: '',
 };
 
-const FORM_EMAIL = 'lemurrien@mail.ru';
 const DUPLICATE_BLOCK_TIME = 60 * 1000;
 
 const MAX_NAME_LENGTH = 60;
@@ -48,12 +47,7 @@ const MAX_EMAIL_LENGTH = 100;
 const MAX_ISSUE_LENGTH = 1000;
 const MAX_WEBSITE_LENGTH = 200;
 
-const repairModels = [
-  'iPhone',
-  'Samsung',
-  'Xiaomi',
-  'Honor',
-];
+const repairModels = ['iPhone', 'Samsung', 'Xiaomi', 'Honor'];
 
 const purchaseModels = [
   'iPhone 17 Air',
@@ -74,28 +68,19 @@ export function PhoneRepairForm({ formType }: PhoneRepairFormProps) {
 
   const availableModels = formType === 'repair' ? repairModels : purchaseModels;
 
+  const API_URL =
+    window.location.hostname === 'localhost'
+      ? 'http://localhost:3001/api/submit'
+      : 'https://iphone-servis-backend.onrender.com/api/submit';
+
   const handleChange = (field: keyof FormValues, value: string) => {
     let nextValue = value;
 
-    if (field === 'name') {
-      nextValue = value.slice(0, MAX_NAME_LENGTH);
-    }
-
-    if (field === 'phone') {
-      nextValue = value.slice(0, MAX_PHONE_LENGTH);
-    }
-
-    if (field === 'email') {
-      nextValue = value.slice(0, MAX_EMAIL_LENGTH);
-    }
-
-    if (field === 'issue') {
-      nextValue = value.slice(0, MAX_ISSUE_LENGTH);
-    }
-
-    if (field === 'website') {
-      nextValue = value.slice(0, MAX_WEBSITE_LENGTH);
-    }
+    if (field === 'name') nextValue = value.slice(0, MAX_NAME_LENGTH);
+    if (field === 'phone') nextValue = value.slice(0, MAX_PHONE_LENGTH);
+    if (field === 'email') nextValue = value.slice(0, MAX_EMAIL_LENGTH);
+    if (field === 'issue') nextValue = value.slice(0, MAX_ISSUE_LENGTH);
+    if (field === 'website') nextValue = value.slice(0, MAX_WEBSITE_LENGTH);
 
     setValues((prev) => ({
       ...prev,
@@ -127,7 +112,9 @@ export function PhoneRepairForm({ formType }: PhoneRepairFormProps) {
 
     if (!values.email.trim()) {
       newErrors.email = 'Email обязателен';
-    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email.trim())) {
+    } else if (
+      !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email.trim())
+    ) {
       newErrors.email = 'Неверный формат email';
     } else if (values.email.trim().length > MAX_EMAIL_LENGTH) {
       newErrors.email = `Email слишком длинный (до ${MAX_EMAIL_LENGTH} символов)`;
@@ -188,16 +175,13 @@ export function PhoneRepairForm({ formType }: PhoneRepairFormProps) {
     setIsSubmitting(true);
 
     try {
-      const requestType =
-        formType === 'repair' ? 'Заявка на ремонт' : 'Заявка на покупку';
-
-      const response = await fetch(`http://localhost:3001/api/submit`, {
+      const response = await fetch(API_URL, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           Accept: 'application/json',
         },
-          body: JSON.stringify({
+        body: JSON.stringify({
           formType,
           name: values.name,
           phone: values.phone,
@@ -205,8 +189,8 @@ export function PhoneRepairForm({ formType }: PhoneRepairFormProps) {
           model: values.model,
           issue: values.issue || '',
           website: values.website,
-  }),
-});
+        }),
+      });
 
       const result = await response.json();
 

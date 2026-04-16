@@ -15,9 +15,11 @@ app.use(
   cors({
     origin: [
       'http://localhost:5173',
-      'https://ТВОЙ-САЙТ.netlify.app',
+      'https://kaleidoscopic-stroopwafel-629977.netlify.app',
+      'https://kaleidoscopic-stroopwafel-629977.netlify.app/', // на всякий
     ],
     methods: ['POST', 'GET'],
+    credentials: true,
   })
 );
 
