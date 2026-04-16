@@ -15,8 +15,7 @@ app.use(
   cors({
     origin: [
       'http://localhost:5173',
-      'https://kaleidoscopic-stroopwafel-629977.netlify.app',
-      'https://kaleidoscopic-stroopwafel-629977.netlify.app/', // на всякий
+      'https://iphoneservise01.onrender.com',
     ],
     methods: ['POST', 'GET'],
     credentials: true,
