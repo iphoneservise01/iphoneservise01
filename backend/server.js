@@ -16,6 +16,8 @@ app.use(
     origin: [
       'http://localhost:5173',
       'https://iphoneservise01.onrender.com',
+      'https://iphoneservise.ru',
+      'https://www.iphoneservise.ru',
     ],
     methods: ['POST', 'GET'],
     credentials: true,
